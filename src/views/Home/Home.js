@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Home() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+
   return (
     <>
       <div className="container py-2 text-center bg-primary text-white rounded w-50 mt-2">
@@ -42,6 +46,10 @@ function Home() {
                     type="text"
                     className="form-control py-4"
                     placeholder="Enter Title Here"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="container mt-4">
@@ -49,6 +57,10 @@ function Home() {
                     type="text"
                     className="form-control py-4"
                     placeholder="Enter Descripton Here"
+                    value={description}
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="container mt-4">
@@ -56,6 +68,10 @@ function Home() {
                     type="Date"
                     className="form-control py-4"
                     placeholder="Enter Date Here"
+                    value={date}
+                    onChange={(e) => {
+                      setDate(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="coantainer text-center mt-5 ">
