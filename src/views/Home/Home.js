@@ -26,7 +26,7 @@ function Home() {
           <div
             className="card shadow"
             style={{
-              width: "25rem",
+              width: "28rem",
               height: "450px ",
               border: "1px solid red",
             }}
@@ -47,7 +47,7 @@ function Home() {
           <div
             className="card shadow"
             style={{
-              width: "25rem",
+              width: "28rem",
               height: "450px ",
               border: "1px solid red",
             }}
