@@ -1,0 +1,7 @@
+.tasklist-container-scroller {
+  height: 300px;
+  overflow-y: scroll;
+}
+.tasklist-container-scroller::-webkit-scrollbar {
+  width: 5px;
+}

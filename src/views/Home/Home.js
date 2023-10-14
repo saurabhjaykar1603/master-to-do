@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import Task from "../../components/Task/Task";
 
 function Home() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+  const [taskList, setTaskList] = useState([
+    {
+      title: "Master To Do",
+      description: "Master All To do Concepts",
+      date: "15-oct-2023",
+    },
+    
+  ]);
 
   return (
     <>
@@ -22,7 +31,14 @@ function Home() {
               border: "1px solid red",
             }}
           >
-            <div className="card-body"></div>
+            <div className="card-body tasklist-container-scroller">
+              {taskList.map((taskItem, i) => {
+                const { title, description, date } = taskItem;
+                return (
+                  <Task title={title} description={description} date={date} />
+                );
+              })}
+            </div>
           </div>
         </div>
 
