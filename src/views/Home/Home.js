@@ -11,8 +11,26 @@ function Home() {
       description: "Master All To do Concepts",
       date: "15-oct-2023",
     },
-    
   ]);
+
+  // add task operation
+
+  const addTaskIntoList = () => {
+    // Generate random Id
+    const randomId = Math.floor(Math.random() * 1000);
+    console.log(randomId);
+
+    const obj = {
+      id: randomId,
+      title: title,
+      description: description,
+      date: date,
+    };
+    setTaskList([...taskList, obj]);
+    setTitle("");
+    setDescription("");
+    setDate("");
+  };
 
   return (
     <>
@@ -94,6 +112,7 @@ function Home() {
                   <button
                     type="button"
                     className="btn btn-warning px-5 py-2 fs-5 fw-bold "
+                    onClick={addTaskIntoList}
                   >
                     Add Task
                   </button>
