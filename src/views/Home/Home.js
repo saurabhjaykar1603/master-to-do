@@ -32,6 +32,14 @@ function Home() {
     setDate("");
   };
 
+  // delet task operation using obj
+  const deleteTask = (obj) => {
+    const index = taskList.indexOf(obj); // Find the index of the task to be deleted
+    const tempArray = taskList; // Create a reference to the original array
+    tempArray.splice(index, 1); // Remove the task from the tempArray
+    setTaskList([...tempArray]); // Update state with the tempArray
+  };
+
   return (
     <>
       <div className="container py-2 text-center bg-primary text-white rounded w-50 mt-2">
@@ -53,7 +61,13 @@ function Home() {
               {taskList.map((taskItem, i) => {
                 const { title, description, date } = taskItem;
                 return (
-                  <Task title={title} description={description} date={date} />
+                  <Task
+                    title={title}
+                    description={description}
+                    date={date}
+                    deleteTask={deleteTask}
+                    object={taskItem}
+                  />
                 );
               })}
             </div>

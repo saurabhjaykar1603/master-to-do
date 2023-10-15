@@ -5,3 +5,18 @@
 .tasklist-container-scroller::-webkit-scrollbar {
   width: 5px;
 }
+.card-body-container {
+  position: relative;
+}
+.delet-icon{
+  position: absolute;
+  bottom : 0px;
+  right : 60px;
+ 
+}
+.edit-icon{
+  position: absolute;
+  bottom : 0px;
+  right : 18px;
+ 
+}
