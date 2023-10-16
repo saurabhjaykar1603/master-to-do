@@ -33,11 +33,34 @@ function Home() {
   };
 
   // delet task operation using obj
-  const deleteTask = (obj) => {
-    const index = taskList.indexOf(obj); // Find the index of the task to be deleted
-    const tempArray = taskList; // Create a reference to the original array
-    tempArray.splice(index, 1); // Remove the task from the tempArray
-    setTaskList([...tempArray]); // Update state with the tempArray
+  // const deleteTask = (obj) => {
+  //   const index = taskList.indexOf(obj); // Find the index of the task to be deleted
+  //   const tempArray = taskList; // Create a reference to the original array
+  //   tempArray.splice(index, 1); // Remove the task from the tempArray
+  //   setTaskList([...tempArray]); // Update state with the tempArray
+  // };
+
+  // delet task operation using id
+
+  // Define a function called deleteTask that takes an 'id' as an argument
+  
+  const deleteTask = (id) => {
+    let index; // Declare a variable to store the index of the task to delete
+
+    // Iterate through the taskList array to find the index of the task with the specified 'id'
+    taskList.forEach((task, i) => {
+      if (task.id === id) {
+        index = i; // Set the 'index' variable when the task with the matching 'id' is found
+      }
+    });
+
+    const tempArray = [...taskList]; // Create a new array based on the current 'taskList'
+
+    // Remove the task with the found index from 'tempArray'
+    tempArray.splice(index, 1);
+
+    // Update the state with a new array that excludes the deleted task
+    setTaskList([...tempArray]);
   };
 
   return (
@@ -59,14 +82,15 @@ function Home() {
           >
             <div className="card-body tasklist-container-scroller">
               {taskList.map((taskItem, i) => {
-                const { title, description, date } = taskItem;
+                const { title, description, date, id } = taskItem;
                 return (
                   <Task
                     title={title}
                     description={description}
                     date={date}
                     deleteTask={deleteTask}
-                    object={taskItem}
+                    // object={taskItem}
+                    id={id}
                   />
                 );
               })}

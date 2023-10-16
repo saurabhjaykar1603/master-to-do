@@ -1,7 +1,7 @@
 import React from "react";
 import "./Task.css";
 
-function Task({ title, description, date, deleteTask, obj }) {
+function Task({ title, description, date, deleteTask, id }) {
   return (
     <>
       <div
@@ -17,7 +17,7 @@ function Task({ title, description, date, deleteTask, obj }) {
           <p
             className="delet-icon bg-light shadow  p-1"
             style={{ borderRadius: "50px", border: "1px solid red" }}
-            onClick={() => {deleteTask(obj);}}
+            onClick={() => {deleteTask(id);}}
           >
             🗑️
           </p>
