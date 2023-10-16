@@ -13,23 +13,33 @@ function Home() {
     },
   ]);
 
-  // add task operation
-
+  // This function adds a task to a list and saves it to local storage.
   const addTaskIntoList = () => {
-    // Generate random Id
+    // Generate a random ID for the new task.
     const randomId = Math.floor(Math.random() * 1000);
-    console.log(randomId);
+    console.log(randomId); // Log the random ID for debugging purposes.
 
+    // Create a task object with the random ID, title, description, and date.
     const obj = {
-      id: randomId,
-      title: title,
-      description: description,
-      date: date,
+      id: randomId, // Assign the random ID
+      title: title, // Assign the task title (assuming 'title' is defined elsewhere)
+      description: description, // Assign the task description (assuming 'description' is defined elsewhere)
+      date: date, // Assign the task date (assuming 'date' is defined elsewhere)
     };
-    setTaskList([...taskList, obj]);
+
+    // Copy the existing task list and add the new task object to it.
+    const newTaskList = [...taskList, obj];
+
+    // Update the task list state with the new list that includes the added task.
+    setTaskList(newTaskList);
+
+    // Reset the input fields (assuming 'setTitle', 'setDescription', and 'setDate' functions are defined elsewhere).
     setTitle("");
     setDescription("");
     setDate("");
+
+    // Save the updated task list to local storage (assuming 'saveTasksToLocalStorage' is defined elsewhere).
+    saveTasksToLocalStorage(newTaskList);
   };
 
   // delet task operation using obj
@@ -43,7 +53,7 @@ function Home() {
   // delet task operation using id
 
   // Define a function called deleteTask that takes an 'id' as an argument
-  
+
   const deleteTask = (id) => {
     let index; // Declare a variable to store the index of the task to delete
 
@@ -61,6 +71,12 @@ function Home() {
 
     // Update the state with a new array that excludes the deleted task
     setTaskList([...tempArray]);
+  };
+
+  // save tasks to localStorage
+
+  const saveTasksToLocalStorage = (task) => {
+    localStorage.setItem("master", JSON.stringify(task));
   };
 
   return (
