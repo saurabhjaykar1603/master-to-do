@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Task from "../../components/Task/Task";
 
 function Home() {
@@ -78,6 +78,13 @@ function Home() {
   const saveTasksToLocalStorage = (task) => {
     localStorage.setItem("master", JSON.stringify(task));
   };
+
+  // load task From Local Storage
+
+  useEffect(() => {
+    const list = JSON.parse(localStorage.getItem("master"));
+    setTaskList(list)
+  }, []);
 
   return (
     <>
