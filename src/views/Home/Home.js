@@ -71,6 +71,8 @@ function Home() {
 
     // Update the state with a new array that excludes the deleted task
     setTaskList([...tempArray]);
+
+    saveTasksToLocalStorage(tempArray); // Call the saveTasksToLocalStorage function with 'tempArray' to updated tasks to delete from localStorage
   };
 
   // save tasks to localStorage
@@ -83,7 +85,7 @@ function Home() {
 
   useEffect(() => {
     const list = JSON.parse(localStorage.getItem("master"));
-    setTaskList(list)
+    setTaskList(list);
   }, []);
 
   return (
